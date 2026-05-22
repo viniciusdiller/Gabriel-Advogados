@@ -1,26 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { History } from "@/components/site/History";
+import { Founder } from "@/components/site/Founder";
+import { Practice } from "@/components/site/Practice";
+import { Team } from "@/components/site/Team";
+import { Publications } from "@/components/site/Publications";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Gabriel Guimarães Advogados — Direito Público, Privado e Digital" },
+      {
+        name: "description",
+        content:
+          "Escritório de advocacia com 14 anos de atuação estratégica em Direito Empresarial, Digital, LGPD, Público e Civil. Excelência acadêmica e atendimento individualizado.",
+      },
+      { property: "og:title", content: "Gabriel Guimarães Advogados" },
+      {
+        property: "og:description",
+        content:
+          "Atuação estratégica em Direito Público e Privado. Excelência acadêmica e inovação jurídica.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main>
+      <Header />
+      <Hero />
+      <History />
+      <Founder />
+      <Practice />
+      <Team />
+      <Publications />
+      <Footer />
+    </main>
+  );
 }
