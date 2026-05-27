@@ -59,16 +59,17 @@ export function Practice() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-          {areas.map(({ icon: Icon, title, desc }) => (
+          {areas.map(({ icon: Icon, title, desc }, idx) => (
             <article
               key={title}
-              className="group relative bg-background p-10 transition-all hover:bg-navy hover:text-navy-foreground"
+              className="group relative bg-background p-10 transition-all hover:bg-navy hover:text-navy-foreground hover:shadow-[0_20px_50px_-25px_oklch(0.22_0.05_255/0.3)] animate-fade-in"
+              style={{animationDelay: `${idx * 0.1}s`}}
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-sm bg-secondary text-navy group-hover:bg-gold group-hover:text-gold-foreground transition-colors">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-sm bg-secondary text-navy group-hover:bg-gold group-hover:text-gold-foreground transition-all group-hover:scale-110">
                   <Icon className="h-6 w-6" strokeWidth={1.5} />
                 </span>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-gold transition-all -translate-x-2 group-hover:translate-x-0" />
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-gold transition-all -translate-x-2 group-hover:translate-x-0 group-hover:-translate-y-0.5" />
               </div>
               <h3 className="font-serif text-2xl mb-3 leading-snug">{title}</h3>
               <p className="text-sm leading-relaxed text-foreground/65 group-hover:text-navy-foreground/70 transition-colors">
