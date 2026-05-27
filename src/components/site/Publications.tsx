@@ -49,17 +49,18 @@ export function Publications() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((a) => (
+          {articles.map((a, idx) => (
             <article
               key={a.title}
-              className="group bg-background border border-border rounded-sm p-8 flex flex-col hover:border-gold/60 hover:shadow-[0_20px_50px_-25px_oklch(0.22_0.05_255/0.25)] transition-all"
+              className="group bg-background border border-border rounded-sm p-8 flex flex-col hover:border-gold/60 hover:shadow-[0_20px_50px_-25px_oklch(0.22_0.05_255/0.35)] hover:bg-navy/2 transition-all animate-fade-in"
+              style={{animationDelay: `${idx * 0.1}s`}}
             >
               <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-muted-foreground">
                 <span className="text-gold font-medium">{a.tag}</span>
                 <span className="h-px w-6 bg-border" />
                 <span>{a.date}</span>
               </div>
-              <h3 className="mt-6 font-serif text-2xl text-navy leading-snug group-hover:text-gold transition-colors">
+              <h3 className="mt-6 font-serif text-2xl text-navy leading-snug group-hover:text-gold transition-all group-hover:translate-x-1">
                 {a.title}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-foreground/70 flex-1">

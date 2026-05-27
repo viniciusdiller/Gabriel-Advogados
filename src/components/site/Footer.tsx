@@ -25,8 +25,9 @@ export function Footer() {
   };
 
   return (
-    <footer id="contato" className="bg-navy text-navy-foreground">
-      <div className="container-x py-24">
+    <footer id="contato" className="bg-navy text-navy-foreground relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_oklch(0.72_0.11_80/0.12),_transparent_60%)]" />
+      <div className="container-x py-28 relative">
         <div className="grid lg:grid-cols-12 gap-14">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-3 mb-6">

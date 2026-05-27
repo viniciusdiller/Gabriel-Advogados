@@ -46,13 +46,34 @@ export function Header() {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  const easeInOutCubic = (t: number) => {
+    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+  };
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const el = document.querySelector(href);
     if (el) {
       const offset = 80;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
+      const target = el.getBoundingClientRect().top + window.scrollY - offset;
+      const start = window.scrollY;
+      const distance = target - start;
+      const duration = 1000; // 1 segundo para scroll mais controlado
+      let start_time: number | null = null;
+
+      const scroll = (timestamp: number) => {
+        if (!start_time) start_time = timestamp;
+        const elapsed = timestamp - start_time;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+        window.scrollTo(0, start + distance * ease);
+
+        if (progress < 1) {
+          requestAnimationFrame(scroll);
+        }
+      };
+
+      requestAnimationFrame(scroll);
     }
     setOpen(false);
   };
@@ -123,7 +144,7 @@ export function Header() {
         <a
           href="#contato"
           onClick={(e) => handleNavClick(e, "#contato")}
-          className="hidden lg:inline-flex items-center justify-center rounded-full bg-navy px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-navy/90 transition-all duration-300 hover:shadow-lg hover:shadow-navy/20"
+          className="hidden lg:inline-flex items-center justify-center rounded-full bg-gold px-6 py-2.5 text-[13px] font-semibold text-gold-foreground hover:bg-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 hover:scale-105"
         >
           Fale Conosco
         </a>
@@ -164,7 +185,7 @@ export function Header() {
             <a
               href="#contato"
               onClick={(e) => handleNavClick(e, "#contato")}
-              className="mt-3 inline-flex items-center justify-center rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white"
+              className="mt-3 inline-flex items-center justify-center rounded-full bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground hover:bg-gold/90 transition-all"
             >
               Fale Conosco
             </a>

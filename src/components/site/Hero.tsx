@@ -27,29 +27,29 @@ export function Hero() {
 
       <div className="container-x relative pt-32 pb-24">
         <div className="max-w-4xl">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-8 animate-fade-in" style={{animationDelay: '0.1s'}}>
             <span className="h-px w-12 bg-gold" />
             <span className="text-xs tracking-[0.3em] uppercase text-gold/90">
               Advocacia · Desde 2010
             </span>
           </div>
 
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight">
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tight animate-fade-in" style={{animationDelay: '0.2s'}}>
             Atuação <em className="not-italic text-gold">estratégica</em> em
             <br className="hidden sm:block" /> Direito Público e Privado.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg text-navy-foreground/75 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg text-navy-foreground/75 leading-relaxed animate-fade-in" style={{animationDelay: '0.3s'}}>
             14 anos de experiência unindo excelência acadêmica, inovação digital
             e atendimento individualizado na defesa dos seus direitos.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-4">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
             <a
               href="https://wa.me/5521997090424"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 rounded-sm bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:bg-gold/90 shadow-[0_10px_40px_-10px_oklch(0.72_0.11_80/0.6)] transition-all hover:translate-y-[-2px]"
+              className="group inline-flex items-center justify-center gap-3 rounded-sm bg-gold px-7 py-4 text-sm font-semibold text-gold-foreground hover:bg-gold/90 shadow-[0_10px_40px_-10px_oklch(0.72_0.11_80/0.6)] transition-all hover:translate-y-[-2px] hover:shadow-[0_20px_60px_-5px_oklch(0.72_0.11_80/0.8)]"
             >
               <WhatsAppIcon className="h-5 w-5" />
               Agendar Consultoria
@@ -57,20 +57,20 @@ export function Hero() {
             </a>
             <a
               href="#atuacao"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-navy-foreground/25 px-7 py-4 text-sm font-medium text-navy-foreground hover:border-gold hover:text-gold transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-navy-foreground/25 px-7 py-4 text-sm font-medium text-navy-foreground hover:border-gold hover:text-gold hover:bg-navy/40 transition-all"
             >
               Conhecer áreas de atuação
             </a>
           </div>
 
-          <dl className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl border-t border-navy-foreground/15 pt-10">
+          <dl className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl border-t border-navy-foreground/15 pt-10 animate-fade-in" style={{animationDelay: '0.5s'}}>
             {[
               ["14+", "Anos de atuação"],
               ["Dr.", "Doutor em Ciência Política"],
               ["UFF", "Formação acadêmica"],
               ["6", "Áreas estratégicas"],
-            ].map(([k, v]) => (
-              <div key={v}>
+            ].map(([k, v], i) => (
+              <div key={v} className="animate-fade-in" style={{animationDelay: `${0.5 + i * 0.1}s`}}>
                 <dt className="font-serif text-3xl text-gold">{k}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-navy-foreground/60">
                   {v}
